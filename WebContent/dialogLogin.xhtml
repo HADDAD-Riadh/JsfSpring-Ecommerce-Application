@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>E-commerce</title>
+		</f:facet>
+
+		<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+	</h:head>
+	<h:body>
+		<p:panel header="E-commerce"
+			footer="copyright © 2013 by Haddad Riadh ** Boughdiri wafa!">
+			<h:form>
+				<p:megaMenu>
+					<p:submenu label="Contact" icon="ui-icon-check">
+						<p:column>
+							<p:submenu label="Envoyer Message">
+								<p:menuitem value="Creer Email" url="/faces/EnvoyerMail.xhtml" />
+
+							</p:submenu>
+						</p:column>
+
+
+					</p:submenu>
+
+
+
+					<p:submenu label="Créer Compte" icon="ui-icon-pencil">
+						<p:column>
+							<p:submenu label="****************">
+								<p:menuitem value="Creation Compte"
+									url="/faces/Inscription.xhtml" />
+								<p:menuitem value="Quitter" url="#" />
+							</p:submenu>
+
+
+						</p:column>
+					</p:submenu>
+
+
+					<p:submenu label="A propos" icon="ui-icon-contact">
+						<p:column>
+							<p:graphicImage value="/images/ecomm.jpg" width="200" />
+							<p:submenu label="Tech.1">
+								<p:menuitem value="Tech.1.1" url="#" />
+								<p:menuitem value="Tech.1.2" url="#" />
+							</p:submenu>
+
+						</p:column>
+
+
+					</p:submenu>
+
+					<p:menuitem value="Quit" url="http://www.primefaces.org"
+						icon="ui-icon-close" />
+				</p:megaMenu>
+			</h:form>
+			<center>
+				<p:graphicImage value="images/Ecommerces.jpg" />
+			</center>
+			<center>
+				<table>
+					<tr>
+						<td><h:outputLabel value="Pour se logger Cliquer Ici!!!" /></td>
+						<td><h:outputLink id="loginLink" value="javascript:void(0)"
+								onclick="dlg.show()" title="login">
+							<p:graphicImage value="images/login.png" />
+						</h:outputLink></td>
+				</tr>
+			</table>
+		</center>
+		<p:growl id="growl" showDetail="true" life="3000" />
+		<p:dialog id="dialog" header="Taper votre login et mot de passe"
+			widgetVar="dlg">
+			<h:form>
+				<p:graphicImage value="images/login.jpg" />
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="username" value="Username:" />
+					<p:inputText value="#{loginBean.client.login}" id="username"
+						required="true" label="username" />
+					<h:outputLabel for="password" value="Password:" />
+					<h:inputSecret value="#{loginBean.client.password}" id="password"
+						required="true" label="password" />
+					<f:facet name="footer">
+						<p:commandButton id="loginButton" value="Login" update=":growl"
+							actionListener="#{loginBean.login}"
+							oncomplete="handleLoginRequest(xhr, status, args)" />
+					</f:facet>
+				</h:panelGrid>
+
+			</h:form>
+		</p:dialog>
+		<script type="text/javascript">
+				function handleLoginRequest(xhr, status, args) {
+					if (args.validationFailed || !args.loggedIn) {
+						jQuery('#dialog').effect("shake", {
+							times : 4
+						},300);
+					} else {
+						dlg.hide();
+						jQuery('#loginLink').fadeOut();
+					}
+				}
+			</script>
+		</p:panel>
+
+	</h:body>
+
+</f:view>
+</html>
+

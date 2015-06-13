@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		</f:facet>
+
+		<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+
+	</h:head>
+
+	<h:body background="#KJHJKKJ">
+
+
+		<p:panel id="panel" header="Liste des actions"
+			style="margin-bottom:10px;">
+			<h:form id="form">
+
+				<p:growl id="msg" />
+
+
+
+				<p:panel>
+					<p:dataTable id="table" value="#{ClientBean.portefeuilles}"
+						var="portefeuille" paginator="true" rows="10">
+
+
+						<f:facet name="header">Ma portefeuille</f:facet>
+
+						<p:column headerText="Num Client" style="text-align: center">
+							<h:outputText value="#{portefeuille.idClient}" />
+						</p:column>
+
+						<p:column headerText="Num Portefeuille" style="text-align: center">
+							<h:outputText value="#{portefeuille.numPf}" />
+						</p:column>
+
+
+
+					</p:dataTable>
+
+				</p:panel>
+
+				<!-- <p:dialog header="Detalhes" widgetVar="detailWidget"
+					resizable="false" modal="true">
+
+					<h:panelGrid id="detailDisplay" columns="2" cellpadding="4"
+						style="margin:0 auto;">
+
+						<h:outputText value="Num Action :" />
+						<h:outputText value="#{ClientBean.portefeuille.numAction}"
+							style="font-weight:bold" />
+
+						<h:outputText value="Num Portefeuille :" />
+						<h:outputText value="#{ClientBean.portefeuille.numPf}"
+							style="font-weight:bold" />
+
+						<h:outputText value="Date Ouverture" />
+						<h:outputText value="#{ClientBean.portefeuille.dateOuvert}"
+							style="font-weight:bold" />
+
+						
+
+						<h:outputText value="Valeur Monitaire" />
+						<h:outputText value="#{ClientBean.portefeuille.valeurMonetaire}"
+							style="font-weight:bold" />
+
+					</h:panelGrid>
+				</p:dialog>
+ -->
+				<!-- <p:dialog header="Editar" widgetVar="editWidget" resizable="false"
+					modal="true">
+
+					<h:panelGrid id="editDisplay" columns="2" cellpadding="4"
+						style="margin:0 auto;">
+
+						<h:outputText value="Num Action:" />
+						<p:inputText value="#{ClientBean.portefeuille.numAction}" disabled="true" />
+
+						<h:outputText value="Num Portefeille :" />
+						<p:inputText value="#{ClientBean.portefeuille.numPf}" />
+
+						<h:outputText value="Date Ouverture" />
+						<p:inputMask value="#{ClientBean.portefeuille.dateOuvert}"
+							mask="999.999.999-99" />
+
+						
+
+						<h:outputText value="Valeur monitaire :" />
+						<p:inputText value="#{ClientBean.portefeuille.valeurMonetaire}" />
+
+						<p:commandButton value="Atualizar" icon="ui-icon-check"
+							action="#{Clientbean.atualizar}" oncomplete="editWidget.hide()"
+							update="table, msg" />
+
+					</h:panelGrid>
+				</p:dialog>
+ -->
+				<p:confirmDialog id="removeDialog" widgetVar="removeWidget"
+					header="Remoção de usuário"
+					message="Deseja realmente apagar o usuário #{ClientBean.portefeuille.numPf}?"
+					severity="alert">
+
+					<p:commandButton value="Sim" icon="ui-icon-check"
+						action="#{ClientBean.remover}" oncomplete="removeWidget.hide()"
+						update="table, msg" />
+				</p:confirmDialog>
+
+
+				<p:stack icon="images/stack.png">
+					<p:menuitem value="Aperture" icon="/images/aperture.png"
+						url="/faces/Entreprise.xhtml" />
+					<p:menuitem value="Portefeuille" icon="/images/photoshop.png"
+						url="/faces/index.xhtml" />
+					<p:menuitem value="Reclamation" icon="/images/coda.png"
+						url="/faces/reclamation.xhtml" />
+					<p:menuitem value="Actions" icon="/images/safari.png"
+						url="/faces/Actions.xhtml" />
+					<p:menuitem value="Enterprises" icon="/images/finder.png"
+						url="/faces/Entreprises.xhtml" />
+				</p:stack>
+
+			</h:form>
+
+		</p:panel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</h:body>
+
+</f:view>
+</html>
+

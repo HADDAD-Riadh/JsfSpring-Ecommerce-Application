@@ -1,0 +1,93 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	 xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/orm
+		http://www.springframework.org/schema/orm/spring-orm-2.5.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd" >
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1"></property>
+		<!--  <property name="location" value="/WEB-INF/config/db.properties" />-->
+	</bean>
+
+
+	<bean id="mysqlDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/nettrading</value>
+		</property>
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value></value>
+		</property>
+	</bean>
+ 
+	<bean id="sqlMap" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation"
+			value="classpath:com/NetTrading/server/ibatis/config/SqlMapConfig.xml" />
+		<property name="dataSource" ref="mysqlDataSource" />
+	</bean>
+	
+	<bean id="AdministrateurDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.AdministrateurDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="ClientDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.ClientDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="ContenirDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.ContenirDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="EntrepriseDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.EntrepriseDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="GradeDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.GradeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="HistactionDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.HistactionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="HistoriquegradeDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.HistoriquegradeDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="HistoriquepfDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.HistoriquepfDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="OrdreDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.OrdreDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	<bean id="PortefeuilleDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.PortefeuilleDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+		<bean id="TraderDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.TraderDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	
+		<bean id="ActionDAOImpl"
+		class="com.NetTrading.server.ibatis.daoImpl.ActionDAOImpl">
+		<property name="sqlMapClient" ref="sqlMap" />
+	</bean>
+	
+</beans>

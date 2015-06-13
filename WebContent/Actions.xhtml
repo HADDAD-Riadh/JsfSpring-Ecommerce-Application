@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		</f:facet>
+
+		<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+
+	</h:head>
+
+	<h:body background="#KJHJKKJ">
+		<p:panel id="panel" header="Liste des actions"
+			style="margin-bottom:10px;">
+			<h:form id="form">
+				<p:growl id="msg" />
+				<p:panel>
+					<p:dataTable id="action" value="#{ClientBean.entreprises}"
+						var="entreprise"    paginator="true" rows="10" rowKey="#{entreprise.idEntreprise}"
+              selectionMode="single"    
+              dynamic="true">
+
+						<f:facet name="header">Liste de Entreprises</f:facet>
+
+						<p:column headerText="ID Entreprise" style="text-align: center">
+							<h:outputText value="#{entreprise.idEntreprise}" />
+						</p:column>
+
+						<p:column headerText="Nom" style="text-align: center">
+							<h:outputText value="#{entreprise.nom}" />
+						</p:column>
+
+						<p:column headerText="Adresse" style="text-align: center">
+							<h:outputText value="#{entreprise.adresse}" />
+						</p:column>
+
+						<p:column headerText="TELEFONE" style="text-align: center">
+							<h:outputText value="#{entreprise.tel}" />
+						</p:column>
+
+					</p:dataTable>
+					
+					
+					
+					
+					
+
+				</p:panel>
+			
+
+			</h:form>
+			
+
+		</p:panel>
+	</h:body>
+
+</f:view>
+</html>
+

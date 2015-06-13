@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		</f:facet>
+
+		<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+
+	</h:head>
+
+	<h:body background="#KJHJKKJ">
+	
+	
+		<p:panel id="panel" header="Liste des actions"
+			style="margin-bottom:10px;">
+			 
+		<h:form id="form">
+
+			<p:growl id="msg" />
+
+
+
+			<p:panel>
+				<p:dataTable id="hp" value="#{ClientBean.listport}" var="hp"
+					paginator="true" rows="10" rowKey="#{hp.numAction}"
+					dynamic="true" lazy="true"  style="width: 700" rowsPerPageTemplate="5,10,15,20"
+					>
+					<f:facet name="header">Liste de Portefeuille </f:facet>
+					
+					<p:column headerText="Num Action" style="text-align: center">
+						<h:outputText value="#{hp.numAction}" />
+					</p:column>
+					<p:column headerText="Num Portefeuille" style="text-align: center">
+						<h:outputText value="#{hp.numPf}" />
+					</p:column>
+
+
+					<p:column headerText="Date Entree" style="text-align: center">
+						<h:outputText value="#{hp.dentre}" />
+					</p:column>
+
+					<p:column headerText="Date Sortie" style="text-align: center">
+						<h:outputText value="#{hp.dsortie}" />
+					</p:column>
+
+					<p:column headerText="Quantité" style="text-align: center">
+						<h:outputText value="#{hp.quantite}" />
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+
+			<!-- <p:panel header="Demandes Ordres Achat/Vente" closeSpeed="500"
+				toggleable="true" toggleOrientation="horizontal">
+				<p:panel id="ActionDetailsPanelId" header="Envoi Orde Achat/Vente"
+					style="width: 700;">
+					<h:panelGrid columns="2" cellpadding="2" id="ActionUpdateForm"
+						border="0">
+						<br />
+						<h:outputText value="Type Ordre:" />
+						<br />
+						<p:selectOneMenu id="Ordre" value="#{ActionBean.ordre.typeOrdre}">
+							<f:selectItem itemLabel="Ordre Achat" itemValue="Ordre Achat" />
+							<f:selectItem itemLabel="Ordre Vente" itemValue="Ordre Vente" />
+
+						</p:selectOneMenu>
+						<br />
+
+						<h:outputText value="Id Client:" />
+						<br />
+						<p:inputText value="#{ActionBean.ordre.idClient}" required="true"
+							requiredMessage="*champ Id Client Obligatoire"></p:inputText>
+						<br />
+
+						<h:outputText value="Id Action:" />
+						<br />
+						<p:inputText value="#{ActionBean.selectedUser.numAction}"
+							readonly="true" required="true"
+							requiredMessage="*champ Id Action Obligatoire"></p:inputText>
+						<br />
+
+						<h:outputText value="Date Ordre:" />
+						<br />
+						<p:calendar effect="explode"
+							value="#{ActionBean.ordre.dateOrdre}" required="true"
+							requiredMessage="*champ Date Ordre Obligatoire" />
+						<br />
+
+						<h:outputText value="Etat:" />
+						<br />
+						<p:inputText initial="A envoyé" value="A envoyé"
+							requiredMessage="*champ Etat Obligatoire" readonly="true"
+							required="true"></p:inputText>
+						<br />
+
+						<h:outputText value="Date Execution:" />
+						<br />
+						<p:calendar effect="explode" value="#{ActionBean.ordre.dateExec}"
+							required="true"
+							requiredMessage="*champ Date Execution Obligatoire" />
+						<br />
+
+						<h:outputText value="Nombre Actions:" />
+						<br />
+						<p:inputText id="txt1" value="#{ActionBean.ordre.nbAction}"
+							required="true"
+							requiredMessage="*champ Nombre Action Obligatoire" />
+						<br />
+						<p:slider for="txt1" />
+						<br />
+
+						<h:panelGrid columns="2" style="margin-top:10px">
+							<p:commandButton id="submitButton" value="Envoyer"
+								actionListener="#{ActionBean.ajouterOrdre}" icon="ui-icon-disk"
+								update="ActionDetailsPanelId, msg" />
+							<p:commandButton id="clearButton" type="Effacer" value="Clear"
+								icon="ui-icon-close" />
+						</h:panelGrid>
+
+
+					</h:panelGrid>
+
+				</p:panel>
+				<f:facet name="options">
+					<p:menu>
+						<p:submenu label="Settings">
+							<p:menuitem value="Toggle" url="#" icon="ui-icon-newwin"
+								onclick="panel.toggle()" />
+							<p:menuitem value="Remove" url="#" icon="ui-icon-close"
+								onclick="panel.close()" />
+							</p:submenu>
+						</p:menu>
+					</f:facet>
+
+				</p:panel> -->
+
+				<p:stack icon="images/stack.png">
+					<p:menuitem value="Aperture" icon="/images/aperture.png"
+						url="/faces/Entreprise.xhtml" />
+					<p:menuitem value="Ma portefeuille" icon="/images/photoshop.png"
+						url="/faces/index.xhtml" />
+					<p:menuitem value="Coda" icon="/images/coda.png"
+						url="/faces/InscriClient.xhtml" />
+					<p:menuitem value="Safari" icon="/images/safari.png"
+						url="/faces/Inscription.xhtml" />
+					<p:menuitem value="Finder" icon="/images/finder.png"
+						url="/faces/dialogLogin.xhtml" />
+				</p:stack>
+
+			</h:form>
+
+
+		</p:panel>
+
+
+
+
+	</h:body>
+
+</f:view>
+</html>
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ibatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN" "http://ibatis.apache.org/dtd/ibator-config_1_0.dtd" >
+<ibatorConfiguration >
+  <classPathEntry location="C:\Documents and Settings\Administrateur\workspace\NetTradingPfsProject\WebContent\WEB-INF\lib\mysql-connector-java-5.1.22-bin.jar"/>
+  <ibatorContext id="ibatorContext" defaultModelType="flat" targetRuntime="Ibatis2java5">
+   	
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/nettrading" userId="root" password="" />
+    <javaModelGenerator targetPackage="com.NetTrading.server.ibatis.model" targetProject="NetTradingPfsProject" />
+    <sqlMapGenerator targetPackage="com.NetTrading.server.ibatis.sqlmap" targetProject="NetTradingPfsProject" />
+    <daoGenerator implementationPackage="com.NetTrading.server.ibatis.daoImpl" targetPackage="com.NetTrading.server.ibatis.dao" targetProject="NetTradingPfsProject" type="SPRING" />
+
+
+<!--  <table schema="jsf" tableName="jsf"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+       <table schema="administrateur" tableName="administrateur"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+      <table schema="client" tableName="client"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+      <table schema="entreprise" tableName="entreprise"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+      <table schema="grade" tableName="grade"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+     <table schema="histaction" tableName="histaction"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+     <table schema="historiquegrade" tableName="historiquegrade"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+     <table schema="historiquepf" tableName="historiquepf"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+     <table schema="ordre" tableName="ordre"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+      <table schema="portefeuille" tableName="portefeuille"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+      <table schema="trader" tableName="trader"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+     <table schema="contenir" tableName="contenir"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>  
+         <table schema="trader" tableName="trader"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+
+    <table schema="entreprise" tableName="entreprise"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>  
+    
+      <table schema="action" tableName="action"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+    
+      
+      <table schema="portefeuille" tableName="portefeuille"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+      -->
+      <table schema="ordre" tableName="ordre"  
+    	enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+    	enableUpdateByExample="false" selectByExampleQueryId="false">
+    	<property name="useActualColumnNames" value="true"/>
+    </table>
+   </ibatorContext>
+</ibatorConfiguration>

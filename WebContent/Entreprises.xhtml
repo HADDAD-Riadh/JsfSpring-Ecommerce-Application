@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		</f:facet>
+
+		<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+
+	</h:head>
+
+	<h:body background="#KJHJKKJ">
+		<p:panel id="panel" header="Liste des actions"
+			style="margin-bottom:10px;">
+			<h:form id="form">
+				<!--  -->
+				<p:growl id="msg" />
+
+
+
+				<p:panel>
+					<p:dataTable id="entreprise" value="#{ClientBean.entreprises}"
+						var="entreprise" paginator="true" rows="10"
+						rowKey="#{entreprise.idEntreprise}" dynamic="true"
+						selection="#{ClientBean.selectedUser}" selectionMode="single"
+						style="width: 700" first="#{entreprise.idEntreprise}">
+						<f:facet name="header">Liste de Entreprises</f:facet>
+						<p:ajax event="rowSelect" update=":form:EntrepriseUpdateForm"
+							listener="#{ClientBean.onEntrepriseSelect}" />
+						<p:column headerText="ID Entreprise" style="text-align: center">
+							<h:outputText value="#{entreprise.idEntreprise}" />
+						</p:column>
+
+						<p:column headerText="Nom" style="text-align: center">
+							<h:outputText value="#{entreprise.nom}" />
+						</p:column>
+
+						<p:column headerText="Adresse" style="text-align: center">
+							<h:outputText value="#{entreprise.adresse}" />
+						</p:column>
+
+						<p:column headerText="TELEFONE" style="text-align: center">
+							<h:outputText value="#{entreprise.tel}" />
+						</p:column>
+
+					</p:dataTable>
+
+
+
+
+
+				</p:panel>
+
+
+				<p:panel id="EntrepriseDetailsPanelId"
+					header="Envoi Orde Achat/Vente" style="width: 700;">
+					<h:panelGrid columns="2" cellpadding="2" id="EntrepriseUpdateForm"
+						border="0">
+
+						<h:outputText value="Type Ordre:" />
+						<br />
+						<p:selectOneMenu id="Ordre">
+							<f:selectItem itemLabel="Ordre Achat" itemValue="Ordre Achat" />
+							<f:selectItem itemLabel="Ordre Vente" itemValue="Ordre Vente" />
+
+						</p:selectOneMenu>
+						<br />
+
+
+
+						<h:outputText value="Id Action:" />
+						<br />
+						<p:inputText value="#{ClientBean.selectedUser.idEntreprise}"
+							readonly="true"></p:inputText>
+						<br />
+
+						<h:outputText value="Nom:" />
+						<br />
+						<p:inputText value="#{ClientBean.selectedUser.nom}"
+							readonly="true"></p:inputText>
+						<br />
+
+
+
+
+
+						<h:outputText value="Date Ordre:" />
+						<br />
+						<p:calendar effect="explode" />
+						<br />
+
+						<h:outputText value="Nombre Actions:" />
+						<br />
+						<p:inputText id="txt1" />
+						<br />
+						<p:slider for="txt1" />
+						<br />
+
+
+						<h:panelGrid columns="2" style="margin-top:10px">
+							<p:commandButton id="submitButton" value="Envoyer"
+								icon="ui-icon-disk" />
+							<p:commandButton id="clearButton" type="Effacer" value="Clear"
+								icon="ui-icon-close" />
+						</h:panelGrid>
+
+
+					</h:panelGrid>
+				</p:panel>
+				<p:stack icon="images/stack.png">
+					<p:menuitem value="Aperture" icon="/images/aperture.png"
+						url="/faces/Entreprise.xhtml" />
+					<p:menuitem value="Actions" icon="/images/photoshop.png"
+						url="/faces/actions.xhtml" />
+					<p:menuitem value="Coda" icon="/images/coda.png"
+						url="/faces/InscriClient.xhtml" />
+					<p:menuitem value="Safari" icon="/images/safari.png"
+						url="/faces/Inscription.xhtml" />
+					<p:menuitem value="Finder" icon="/images/finder.png"
+						url="/faces/dialogLogin.xhtml" />
+				</p:stack>
+
+			</h:form>
+		</p:panel>
+
+	</h:body>
+
+</f:view>
+</html>
+

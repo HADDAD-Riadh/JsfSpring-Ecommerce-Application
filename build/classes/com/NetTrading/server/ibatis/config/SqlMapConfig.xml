@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+	  <settings useStatementNamespaces="true" useColumnLabel="true"/>
+	 
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/client_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/administrateur_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/contenir_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/entreprise_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/grade_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/histaction_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/historiquegrade_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/historiquepf_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/ordre_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/portefeuille_SqlMap.xml"/>
+	  <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/trader_SqlMap.xml"/>
+	   <sqlMap resource="com/NetTrading/server/ibatis/sqlmap/action_SqlMap.xml"/>
+	  
+		
+</sqlMapConfig>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+   
+    
+    
+    
+    version="2.1">
+    
+    <navigation-rule>
+		<from-view-id>index.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>newUser</from-outcome>
+				<to-view-id>newUser.xhtml</to-view-id>
+				<redirect />
+			</navigation-case>
+	</navigation-rule>
+    <navigation-rule>
+		<from-view-id>newUser.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>index</from-outcome>
+				<to-view-id>index.xhtml</to-view-id>
+				<redirect />
+			</navigation-case>
+	</navigation-rule>
+
+    
+<!-- 	<managed-bean>
+	<managed-bean-name>jsfBean</managed-bean-name>
+	<managed-bean-class>com.crud.control.jsfBean</managed-bean-class><managed-bean-scope>session</managed-bean-scope>
+	
+	</managed-bean>  -->
+	
+	<!-- <managed-bean>
+	<managed-bean-name>UsuarioBean</managed-bean-name>
+	<managed-bean-class>com.crud.control.UsuarioBean</managed-bean-class><managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>  -->
+
+ 
+ 
+ <managed-bean>
+	<managed-bean-name>loginBean</managed-bean-name>
+	<managed-bean-class>com.crud.control.LoginBean</managed-bean-class>
+	<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	 <managed-bean>
+	<managed-bean-name>ActionBean</managed-bean-name>
+	<managed-bean-class>com.crud.control.ActionBean</managed-bean-class>
+	<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+
+
+  <managed-bean>
+	<managed-bean-name>ClientBean</managed-bean-name>
+	<managed-bean-class>com.crud.control.ClientBean</managed-bean-class>
+	<managed-bean-scope>session</managed-bean-scope>
+	<managed-property>
+		<property-name>portefeuille</property-name>
+		<property-class>com.NetTrading.server.ibatis.model.Portefeuille</property-class>
+		<value></value>
+	</managed-property>
+	<managed-property>
+		<property-name>pf</property-name>
+		<property-class>com.NetTrading.server.ibatis.model.Portefeuille</property-class>
+		<value></value>
+	</managed-property>
+</managed-bean>
+  <managed-bean>
+  	<managed-bean-name>portefeuilleBean</managed-bean-name>
+  	<managed-bean-class>com.crud.control.PortefeuilleBean</managed-bean-class>
+  	<managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+
+	
+	
+</faces-config> 

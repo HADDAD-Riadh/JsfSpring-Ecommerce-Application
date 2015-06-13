@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Ajouter nouveau Utilisateur</title>
+		</f:facet>
+
+		<style type="text/css">
+.ui-widget {
+	font-size: 12px !important;
+}
+</style>
+
+	</h:head>
+
+	<h:body>
+	<p:panel header="E-commerce" footer="copyright © 2013 by Haddad Riadh!"> 
+	
+<h:form id="form">  
+                   <pre><h:outputText value="Email:" />
+					<p:inputText value="#{usuarioBean.usuario.id}" /><br/><br/>
+					<h:outputText value="Sujet:" />
+					<p:inputText value="#{usuarioBean.usuario.id}"  /><br/><br/>
+<h:outputText value="Date :" /><p:calendar effect="explode"/> <br/>
+</pre> 
+  
+    <p:editor id="editor" value="#{editorBean.value}" width="600"/>  
+  
+    <h:panelGrid columns="2" style="margin-top:10px">  
+        <p:commandButton id="submitButton" value="Envoyer" update="display" oncomplete="dlg.show()"  
+                        icon="ui-icon-disk" />  
+        <p:commandButton id="clearButton" type="button" value="Effacer" onclick="editor.clear()"  
+                        icon="ui-icon-close" />  
+    </h:panelGrid>  
+  
+    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">  
+        <h:outputText id="display" value="#{editorBean.value}" escape="false" />  
+    </p:dialog>  
+  
+</h:form>  
+            
+	
+	      
+    
+	
+	
+	
+	
+	
+ </p:panel>
+ 
+	</h:body>
+
+</f:view>
+</html>
+
